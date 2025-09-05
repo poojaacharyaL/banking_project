@@ -279,6 +279,6 @@ seed_examples:
 document_outline: Consistent balance inquiry response examples showing unchanged balances across multiple inquiries for Indian banking accounts
 document:
   repo: https://github.com/poojaacharyaL/banking_project.git
-  commit: 01250f2
+  commit: 8b34217
 patterns:
   - knowledge/banking_test_data.md

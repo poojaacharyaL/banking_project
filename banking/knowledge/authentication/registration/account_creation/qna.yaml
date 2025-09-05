@@ -321,6 +321,6 @@ seed_examples:
 document_outline: Account creation response examples for various Indian banking products including savings, current, fixed deposits, NRI accounts, government schemes, and corporate accounts with successful status codes.
 document:
   repo: https://github.com/poojaacharyaL/banking_project.git
-  commit: 01250f2
+  commit: 8b34217
 patterns:
   - knowledge/banking_test_data.md

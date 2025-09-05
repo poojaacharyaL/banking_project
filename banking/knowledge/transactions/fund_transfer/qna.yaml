@@ -321,6 +321,6 @@ seed_examples:
 document_outline: Fund transfer test data generation examples including NEFT, RTGS, IMPS, scheduled, and UPI transactions with realistic account details for LLM training.
 document:
   repo: https://github.com/poojaacharyaL/banking_project.git
-  commit: 01250f2
+  commit: 8b34217
 patterns:
   - knowledge/banking_test_data.md
