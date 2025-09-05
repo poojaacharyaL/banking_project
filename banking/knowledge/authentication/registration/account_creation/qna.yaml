@@ -1,0 +1,326 @@
+version: 3
+domain: banking.knowledge.authentication.registration.account_creation
+created_by: poojaacharyaL
+seed_examples:
+  - context: >
+      Generate valid response payloads for /api/account_creation endpoint that handles
+      successful savings and current account creation for Indian banking customers.
+      Responses should include account details, account numbers, IFSC codes, and
+      successful status messages with 200 response codes.
+    questions_and_answers:
+      - question: Create a response for successful savings account opening with complete account details.
+        answer: |
+          {
+            "accountNumber": "50100234567890",
+            "accountType": "Savings",
+            "accountName": "Prime Savings Account",
+            "IFSC Code": "SBIN0012345",
+            "branch": "Mumbai Main Branch",
+            "minimumBalance": 5000.00,
+            "interestRate": 4.5,
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T10:30:45Z",
+            "customerId": "CUST10012345",
+            "responseCode": "200",
+            "message": "Savings account created successfully"
+          }
+      - question: Generate response for current account creation for business customers.
+        answer: |
+          {
+            "accountNumber": "60100987654321",
+            "accountType": "Current",
+            "accountName": "Business Current Account",
+            "IFSC Code": "HDFC0000123",
+            "branch": "Bangalore Corporate Branch",
+            "minimumBalance": 25000.00,
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T11:15:30Z",
+            "customerId": "CUST10067890",
+            "businessName": "Sharma Enterprises",
+            "responseCode": "200",
+            "message": "Current account created successfully for business"
+          }
+      - question: Provide response for zero balance savings account opening.
+        answer: |
+          {
+            "accountNumber": "70100123456789",
+            "accountType": "Savings",
+            "accountName": "Basic Savings Account",
+            "IFSC Code": "ICICI0000456",
+            "branch": "Delhi South Branch",
+            "minimumBalance": 0.00,
+            "interestRate": 3.5,
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T12:45:15Z",
+            "customerId": "CUST10024680",
+            "responseCode": "200",
+            "message": "Zero balance savings account created successfully"
+          }
+
+  - context: >
+      Generate account creation responses for fixed deposits and recurring deposits
+      with specific tenure, interest rates, and maturity details. Include all
+      necessary deposit account parameters for successful creation.
+    questions_and_answers:
+      - question: Create response for 1-year fixed deposit account opening.
+        answer: |
+          {
+            "accountNumber": "FD123456789012",
+            "accountType": "Fixed Deposit",
+            "accountName": "1 Year Fixed Deposit",
+            "IFSC Code": "SBIN0012345",
+            "branch": "Mumbai Main Branch",
+            "depositAmount": 500000.00,
+            "tenureMonths": 12,
+            "interestRate": 6.75,
+            "maturityDate": "2025-01-15",
+            "maturityAmount": 534375.00,
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T14:20:30Z",
+            "customerId": "CUST10013579",
+            "responseCode": "200",
+            "message": "Fixed deposit account created successfully"
+          }
+      - question: Generate response for recurring deposit account creation with monthly installments.
+        answer: |
+          {
+            "accountNumber": "RD987654321098",
+            "accountType": "Recurring Deposit",
+            "accountName": "Monthly Recurring Deposit",
+            "IFSC Code": "HDFC0000123",
+            "branch": "Bangalore Central",
+            "monthlyInstallment": 10000.00,
+            "tenureMonths": 24,
+            "interestRate": 6.25,
+            "maturityDate": "2026-01-15",
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T15:30:45Z",
+            "customerId": "CUST10011223",
+            "responseCode": "200",
+            "message": "Recurring deposit account created successfully"
+          }
+      - question: Provide response for senior citizen fixed deposit with special interest rates.
+        answer: |
+          {
+            "accountNumber": "FDSC500123456",
+            "accountType": "Fixed Deposit",
+            "accountName": "Senior Citizen Special FD",
+            "IFSC Code": "ICICI0000456",
+            "branch": "Delhi South Branch",
+            "depositAmount": 800000.00,
+            "tenureMonths": 36,
+            "interestRate": 8.25,
+            "maturityDate": "2027-01-15",
+            "maturityAmount": 1026600.00,
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T16:45:20Z",
+            "customerId": "CUST10033445",
+            "holderAge": 68,
+            "responseCode": "200",
+            "message": "Senior citizen fixed deposit created successfully"
+          }
+
+  - context: >
+      Generate account creation responses for NRI banking products including NRE
+      and NRO accounts with foreign currency details and NRI-specific parameters.
+    questions_and_answers:
+      - question: Create response for NRE savings account opening for NRIs.
+        answer: |
+          {
+            "accountNumber": "NRE1234567890",
+            "accountType": "NRE Savings",
+            "accountName": "NRE Savings Account",
+            "IFSC Code": "AXIS0000789",
+            "branch": "Mumbai International Branch",
+            "minimumBalance": 10000.00,
+            "interestRate": 5.5,
+            "currency": "USD",
+            "nriType": "NRE",
+            "foreignAddress": "123 Main St, New York, NY 10001, USA",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T18:30:15Z",
+            "customerId": "NRI10012345",
+            "responseCode": "200",
+            "message": "NRE savings account created successfully"
+          }
+      - question: Generate response for NRO current account creation.
+        answer: |
+          {
+            "accountNumber": "NRO9876543210",
+            "accountType": "NRO Current",
+            "accountName": "NRO Current Account",
+            "IFSC Code": "HDFC0000999",
+            "branch": "Delhi Premium Branch",
+            "minimumBalance": 25000.00,
+            "currency": "INR",
+            "nriType": "NRO",
+            "foreignAddress": "456 Oak Ave, London SW1A 1AA, UK",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T19:15:40Z",
+            "customerId": "NRI10067890",
+            "responseCode": "200",
+            "message": "NRO current account created successfully"
+          }
+      - question: Provide response for NRI fixed deposit account in foreign currency.
+        answer: |
+          {
+            "accountNumber": "FDNRI500123456",
+            "accountType": "NRE Fixed Deposit",
+            "accountName": "NRE USD Fixed Deposit",
+            "IFSC Code": "SBIN0018888",
+            "branch": "Chennai International",
+            "depositAmount": 50000.00,
+            "tenureMonths": 24,
+            "interestRate": 7.2,
+            "currency": "USD",
+            "nriType": "NRE",
+            "maturityDate": "2026-01-15",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T20:30:25Z",
+            "customerId": "NRI10024680",
+            "responseCode": "200",
+            "message": "NRI fixed deposit account created successfully"
+          }
+
+  - context: >
+      Generate account creation responses for government savings schemes and
+      special category accounts including PPF, SSY, senior citizen accounts,
+      and other long-term investment products with specific scheme rules.
+    questions_and_answers:
+      - question: Create response for Public Provident Fund (PPF) account opening.
+        answer: |
+          {
+            "accountNumber": "PPF123456789",
+            "accountType": "PPF",
+            "accountName": "Public Provident Fund Account",
+            "IFSC Code": "SBIN0012345",
+            "branch": "Mumbai Main Branch",
+            "interestRate": 7.1,
+            "maxYearlyContribution": 150000.00,
+            "maturityPeriod": 15,
+            "maturityDate": "2039-01-15",
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T21:45:30Z",
+            "customerId": "CUST10055779",
+            "responseCode": "200",
+            "message": "PPF account created successfully"
+          }
+      - question: Generate response for Sukanya Samriddhi Yojana (SSY) account creation.
+        answer: |
+          {
+            "accountNumber": "SSY987654321",
+            "accountType": "Sukanya Samriddhi",
+            "accountName": "Sukanya Samriddhi Yojana Account",
+            "IFSC Code": "HDFC0000123",
+            "branch": "Bangalore Central",
+            "interestRate": 8.2,
+            "maxYearlyContribution": 150000.00,
+            "maturityPeriod": 21,
+            "maturityDate": "2045-01-15",
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T22:30:15Z",
+            "customerId": "CUST10066889",
+            "girlChildName": "Ananya Sharma",
+            "girlChildDOB": "2015-06-20",
+            "responseCode": "200",
+            "message": "Sukanya Samriddhi Yojana account created successfully"
+          }
+      - question: Provide response for senior citizen savings scheme account opening.
+        answer: |
+          {
+            "accountNumber": "SCSS500123456",
+            "accountType": "Senior Citizen Savings",
+            "accountName": "Senior Citizen Savings Scheme",
+            "IFSC Code": "ICICI0000456",
+            "branch": "Delhi South Branch",
+            "depositAmount": 1500000.00,
+            "interestRate": 8.5,
+            "tenureMonths": 60,
+            "maturityDate": "2029-01-15",
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-15T23:15:40Z",
+            "customerId": "CUST10077990",
+            "holderAge": 65,
+            "responseCode": "200",
+            "message": "Senior citizen savings scheme account created successfully"
+          }
+
+  - context: >
+      Generate account creation responses for corporate, business, and specialized
+      banking products including current accounts for companies, startup accounts,
+      and other institutional banking products with business-specific parameters.
+    questions_and_answers:
+      - question: Create response for corporate current account opening for a private limited company.
+        answer: |
+          {
+            "accountNumber": "CORP1001234567",
+            "accountType": "Corporate Current",
+            "accountName": "Corporate Operating Account",
+            "IFSC Code": "ICICI0000999",
+            "branch": "Mumbai Corporate Branch",
+            "minimumBalance": 100000.00,
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-16T09:30:25Z",
+            "customerId": "CORP10012345",
+            "companyName": "Tech Solutions Pvt Ltd",
+            "companyCIN": "U72900MH2020PTC123456",
+            "authorizedSignatories": ["Rajesh Mehta", "Priya Singh"],
+            "responseCode": "200",
+            "message": "Corporate current account created successfully"
+          }
+      - question: Generate response for startup business account opening.
+        answer: |
+          {
+            "accountNumber": "STARTUP800123",
+            "accountType": "Startup Current",
+            "accountName": "Startup Operating Account",
+            "IFSC Code": "HDFC0000555",
+            "branch": "Bangalore Startup Hub",
+            "minimumBalance": 25000.00,
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-16T10:45:30Z",
+            "customerId": "START10067890",
+            "startupName": "Innovate Tech Solutions",
+            "businessType": "Technology Services",
+            "incorporationDate": "2023-06-15",
+            "responseCode": "200",
+            "message": "Startup current account created successfully"
+          }
+      - question: Provide response for trust account opening for educational trust.
+        answer: |
+          {
+            "accountNumber": "TRUST500123456",
+            "accountType": "Trust Savings",
+            "accountName": "Educational Trust Account",
+            "IFSC Code": "SBIN0018888",
+            "branch": "Delhi Trust Banking",
+            "minimumBalance": 50000.00,
+            "interestRate": 5.0,
+            "currency": "INR",
+            "status": "ACTIVE",
+            "createdDate": "2024-01-16T11:30:15Z",
+            "customerId": "TRUST10024680",
+            "trustName": "Sharma Educational Trust",
+            "trustRegistration": "REG-1234/2020",
+            "trustees": ["Dr. Amit Sharma", "Mrs. Sunita Sharma"],
+            "responseCode": "200",
+            "message": "Trust savings account created successfully"
+          }
+
+document_outline: Account creation response examples for various Indian banking products including savings, current, fixed deposits, NRI accounts, government schemes, and corporate accounts with successful status codes.
+document:
+  repo: https://github.com/poojaacharyaL/banking_repo.git
+  commit: c19fe52
+patterns:
+  - knowledge/banking_test_data.md

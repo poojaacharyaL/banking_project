@@ -1,0 +1,286 @@
+version: 3
+domain: banking.knowledge.authentication.registration
+created_by: poojaacharyaL
+seed_examples:
+  - context: >
+      Generate valid registration payloads for /api/register endpoint. 
+
+      Rules: Use realistic Indian first and last names, emails that match the
+      name, PAN card numbers following 5 letters + 4 digits + 1 letter, mobile
+      numbers starting with 6-9, and full addresses with houseNo, street, city,
+      state, and PIN code. JSON structure must follow the Swagger spec.
+    questions_and_answers:
+      - question: Create a valid registration payload example for testing.
+        answer: |
+          {
+            "name": "Rohit Sharma",
+            "email": "rohit.sharma@example.com",
+            "password": "Rohit@123",
+            "mobile": "9876543210",
+            "PAN card number": "ABCDE1234F",
+            "address": {
+              "houseNo": "12B",
+              "street": "MG Road",
+              "city": "Mumbai",
+              "state": "Maharashtra",
+              "pin": "400001"
+            }
+          }
+      - question: Generate a second payload example following all Indian banking rules.
+        answer: |
+          {
+            "name": "Priya Singh",
+            "email": "priya.singh@example.com",
+            "password": "Priya@123",
+            "mobile": "9123456780",
+            "PAN card number": "XYZAB5678C",
+            "address": {
+              "houseNo": "45A",
+              "street": "Brigade Road",
+              "city": "Bangalore",
+              "state": "Karnataka",
+              "pin": "560001"
+            }
+          }
+      - question: Create a third payload example using different Indian city and state.
+        answer: |
+          {
+            "name": "Anil Kumar",
+            "email": "anil.kumar@example.com",
+            "password": "Anil@123",
+            "mobile": "9988776655",
+            "PAN card number": "LMNOP1234Q",
+            "address": {
+              "houseNo": "78C",
+              "street": "Park Street",
+              "city": "Kolkata",
+              "state": "West Bengal",
+              "pin": "700016"
+            }
+          }
+  - context: >
+      Generate registration payloads with alternative Indian first/last names,
+      different cities, and states.
+
+      The JSON payload must include all required fields with valid formats.
+    questions_and_answers:
+      - question: Generate a registration payload using new Indian names and cities.
+        answer: |
+          {
+            "name": "Neha Verma",
+            "email": "neha.verma@example.com",
+            "password": "Neha@123",
+            "mobile": "9876123456",
+            "PAN card number": "PQRSX9876Z",
+            "address": {
+              "houseNo": "101",
+              "street": "Sector 22",
+              "city": "Chandigarh",
+              "state": "Chandigarh",
+              "pin": "160022"
+            }
+          }
+      - question: Provide another valid payload using different names and PAN card number.
+        answer: |
+          {
+            "name": "Vikram Patel",
+            "email": "vikram.patel@example.com",
+            "password": "Vikram@123",
+            "mobile": "9765432109",
+            "PAN card number": "ABCDE4321F",
+            "address": {
+              "houseNo": "22B",
+              "street": "MG Road",
+              "city": "Ahmedabad",
+              "state": "Gujarat",
+              "pin": "380001"
+            }
+          }
+      - question: Create a third example using a southern state city.
+        answer: |
+          {
+            "name": "Aisha Khan",
+            "email": "aisha.khan@example.com",
+            "password": "Aisha@123",
+            "mobile": "9123678901",
+            "PAN card number": "FGHIJ5678K",
+            "address": {
+              "houseNo": "9A",
+              "street": "Park Lane",
+              "city": "Hyderabad",
+              "state": "Telangana",
+              "pin": "500001"
+            }
+          }
+  - context: >
+      Generate payloads with a mix of male and female Indian first names, paired
+      with last names.
+
+      Emails, PAN card number, mobile, and addresses must follow realistic Indian formats.
+    questions_and_answers:
+      - question: Generate a payload example with a female Indian first name.
+        answer: |
+          {
+            "name": "Aditi Sharma",
+            "email": "aditi.sharma@example.com",
+            "password": "Aditi@123",
+            "mobile": "9876543211",
+            "PAN card number": "ABCDE5678F",
+            "address": {
+              "houseNo": "23",
+              "street": "MG Road",
+              "city": "Mumbai",
+              "state": "Maharashtra",
+              "pin": "400002"
+            }
+          }
+      - question: Generate a male Indian name registration payload.
+        answer: |
+          {
+            "name": "Rakesh Kumar",
+            "email": "rakesh.kumar@example.com",
+            "password": "Rakesh@123",
+            "mobile": "9988776656",
+            "PAN card number": "XYZAB1234C",
+            "address": {
+              "houseNo": "56",
+              "street": "Park Street",
+              "city": "Kolkata",
+              "state": "West Bengal",
+              "pin": "700017"
+            }
+          }
+      - question: Generate another mixed-gender payload example.
+        answer: |
+          {
+            "name": "Sneha Verma",
+            "email": "sneha.verma@example.com",
+            "password": "Sneha@123",
+            "mobile": "9123456781",
+            "PAN card number": "LMNOP5678Q",
+            "address": {
+              "houseNo": "88",
+              "street": "Brigade Road",
+              "city": "Bangalore",
+              "state": "Karnataka",
+              "pin": "560002"
+            }
+          }
+  - context: >
+      Generate payloads using alternative email formats (first.last, initials,
+      numbers) and numeric variations
+
+      in mobile and PAN card number. JSON structure must strictly match
+      /api/register specification.
+    questions_and_answers:
+      - question: Generate a registration payload using initials in the email.
+        answer: |
+          {
+            "name": "Vikrant Singh",
+            "email": "v.singh@example.com",
+            "password": "Vikrant@123",
+            "mobile": "9876123457",
+            "PAN card number": "ABCDE6789F",
+            "address": {
+              "houseNo": "11",
+              "street": "MG Road",
+              "city": "Delhi",
+              "state": "Delhi",
+              "pin": "110001"
+            }
+          }
+      - question: Generate another payload with numeric email variations.
+        answer: |
+          {
+            "name": "Anjali Mehta",
+            "email": "anjali.mehta01@example.com",
+            "password": "Anjali@123",
+            "mobile": "9123456782",
+            "PAN card number": "XYZAB6789C",
+            "address": {
+              "houseNo": "44",
+              "street": "Park Lane",
+              "city": "Chennai",
+              "state": "Tamil Nadu",
+              "pin": "600001"
+            }
+          }
+      - question: Generate payload with numeric variations in PAN card number and mobile.
+        answer: |
+          {
+            "name": "Rohit Jain",
+            "email": "rohit.jain99@example.com",
+            "password": "Rohit@123",
+            "mobile": "9988776657",
+            "PAN card number": "LMNOP6789Q",
+            "address": {
+              "houseNo": "77",
+              "street": "MG Road",
+              "city": "Pune",
+              "state": "Maharashtra",
+              "pin": "411001"
+            }
+          }
+  - context: >
+      Generate synthetic registration payloads using all combinations of first
+      names, last names,
+
+      cities, states, PAN card numbers, and mobile numbers. Ensure JSON matches Swagger spec
+      and is valid.
+    questions_and_answers:
+      - question: Generate a payload combining a southern Indian name and city.
+        answer: |
+          {
+            "name": "Arun Kumar",
+            "email": "arun.kumar@example.com",
+            "password": "Arun@123",
+            "mobile": "9876543212",
+            "PAN card number": "ABCDE7890F",
+            "address": {
+              "houseNo": "33",
+              "street": "Park Street",
+              "city": "Chennai",
+              "state": "Tamil Nadu",
+              "pin": "600002"
+            }
+          }
+      - question: >-
+          Generate a payload combining western Indian city and random first
+          name.
+        answer: |
+          {
+            "name": "Neha Desai",
+            "email": "neha.desai@example.com",
+            "password": "Neha@123",
+            "mobile": "9123456783",
+            "PAN card number": "XYZAB7890C",
+            "address": {
+              "houseNo": "55",
+              "street": "MG Road",
+              "city": "Ahmedabad",
+              "state": "Gujarat",
+              "pin": "380002"
+            }
+          }
+      - question: Generate another random valid payload using northern Indian city.
+        answer: |
+          {
+            "name": "Rakesh Sharma",
+            "email": "rakesh.sharma01@example.com",
+            "password": "Rakesh@123",
+            "mobile": "9988776658",
+            "PAN card number": "LMNOP7890Q",
+            "address": {
+              "houseNo": "66",
+              "street": "Sector 22",
+              "city": "Chandigarh",
+              "state": "Chandigarh",
+              "pin": "160023"
+            }
+          }
+document_outline: Registration endpoint payload examples for Indian banking test data
+document:
+  repo: https://github.com/poojaacharyaL/banking_repo.git
+  commit: c19fe52
+patterns:
+  - knowledge/banking_test_data.md

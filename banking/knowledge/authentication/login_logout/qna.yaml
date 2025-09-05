@@ -1,0 +1,122 @@
+version: 3
+domain: banking.knowledge.authentication.login_logout
+created_by: poojaacharyaL
+seed_examples:
+  - context: >
+      Generate valid login payloads for /api/login endpoint using realistic
+      Indian user data. Rules: Use valid email formats that match registered
+      users and passwords with at least 1 uppercase, 1 lowercase, 1 digit, and 1
+      special character.
+    questions_and_answers:
+      - question: Create a valid login payload for a user from Mumbai.
+        answer: |
+          {
+            "email": "rohit.sharma@example.com",
+            "password": "Rohit#2024"
+          }
+      - question: Generate a login payload for a female user with a strong password.
+        answer: |
+          {
+            "email": "priya.singh@example.com",
+            "password": "Priya*789"
+          }
+      - question: Provide a login example for a user with a common Indian last name.
+        answer: |
+          {
+            "email": "anil.kumar@example.com",
+            "password": "AnilPass@55"
+          }
+  - context: >
+      Generate login payloads for users from different Indian regions with
+      location-appropriate email formats and strong authentication credentials.
+    questions_and_answers:
+      - question: Create a login payload for a user from Bangalore.
+        answer: |
+          {
+            "email": "neha.verma@example.com",
+            "password": "NehaSecure@1"
+          }
+      - question: Generate a login example for a user from Gujarat.
+        answer: |
+          {
+            "email": "vikram.patel@example.com",
+            "password": "Vikram#Login9"
+          }
+      - question: Provide a login payload for a user with a Muslim name format.
+        answer: |
+          {
+            "email": "aisha.khan@example.com",
+            "password": "Aisha$Auth22"
+          }
+  - context: >
+      Generate login payloads with varied email formatting conventions commonly
+      used by Indian users while maintaining valid registered email patterns.
+    questions_and_answers:
+      - question: Create a login payload using initials in the email address.
+        answer: |
+          {
+            "email": "v.singh@example.com",
+            "password": "Vik#2025Singh"
+          }
+      - question: Generate a login example with numeric suffix in the email.
+        answer: |
+          {
+            "email": "anjali.mehta01@example.com",
+            "password": "Anjali$4567"
+          }
+      - question: Provide a login payload with dot-separated first and last name.
+        answer: |
+          {
+            "email": "rakesh.sharma01@example.com",
+            "password": "Rakesh@Xyz99"
+          }
+  - context: >
+      Generate login payloads for professional users with formal email naming
+      conventions and strong security-compliant passwords.
+    questions_and_answers:
+      - question: Create a login payload for a user with a professional email format.
+        answer: |
+          {
+            "email": "rajesh.kapoor@example.com",
+            "password": "Rk@Professional2024"
+          }
+      - question: Generate a login example for a user with compound last name.
+        answer: |
+          {
+            "email": "sneha.chatterjee@example.com",
+            "password": "SnehaChat$567"
+          }
+      - question: Provide a login payload for a user with abbreviated first name.
+        answer: |
+          {
+            "email": "vk.menon@example.com",
+            "password": "VijayKumar@123"
+          }
+  - context: >
+      Generate login payloads for users from various Indian states with
+      region-specific naming patterns and secure authentication credentials.
+    questions_and_answers:
+      - question: Create a login payload for a user from Tamil Nadu.
+        answer: |
+          {
+            "email": "arun.venkatesh@example.com",
+            "password": "ArunTn@2024"
+          }
+      - question: Generate a login example for a user from Punjab.
+        answer: |
+          {
+            "email": "jasmine.kaur@example.com",
+            "password": "Jasmine#Punjab123"
+          }
+      - question: Provide a login payload for a user from West Bengal.
+        answer: |
+          {
+            "email": "deborah.ganguly@example.com",
+            "password": "DeborahWB@456"
+          }
+document_outline: Valid login endpoint payload examples for Indian banking authentication
+document:
+  repo: 'https://github.com/poojaacharyaL/banking_repo.git'
+  commit: c19fe52
+patterns:
+  - knowledge/banking_test_data.md

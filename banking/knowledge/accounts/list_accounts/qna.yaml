@@ -1,0 +1,531 @@
+version: 3
+domain: banking.knowledge.accounts.list_accounts
+created_by: poojaacharyaL
+seed_examples:
+  - context: >
+      Generate valid response payloads for /api/accounts endpoint that returns
+      a list of user accounts with complete details including account numbers,
+      types, balances, IFSC codes, and statuses for Indian banking customers.
+      Account numbers should follow Indian banking formats (typically 11-16 digits),
+      and balances should be in INR format.
+    questions_and_answers:
+      - question: Create a response payload for a user with multiple savings and current accounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "50100234567890",
+                "accountType": "Savings",
+                "accountName": "Prime Savings Account",
+                "currentBalance": 125670.50,
+                "availableBalance": 123450.00,
+                "currency": "INR",
+                "IFSC Code": "SBIN0012345",
+                "branch": "Mumbai Main",
+                "status": "ACTIVE"
+              },
+              {
+                "accountNumber": "50100987654321",
+                "accountType": "Current",
+                "accountName": "Business Current Account",
+                "currentBalance": 456789.25,
+                "availableBalance": 455000.00,
+                "currency": "INR",
+                "IFSC Code": "SBIN0012345",
+                "branch": "Mumbai Main",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Generate a response for a user with single savings account and fixed deposits.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "60100123456789",
+                "accountType": "Savings",
+                "accountName": "Basic Savings Account",
+                "currentBalance": 78500.75,
+                "availableBalance": 78000.00,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000123",
+                "branch": "Bangalore Central",
+                "status": "ACTIVE"
+              },
+              {
+                "accountNumber": "FD1234567890",
+                "accountType": "Fixed Deposit",
+                "accountName": "1 Year Fixed Deposit",
+                "currentBalance": 500000.00,
+                "maturityDate": "2024-12-15",
+                "interestRate": 6.5,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000123",
+                "branch": "Bangalore Central",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Provide a response payload for a user with joint accounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "70100567890123",
+                "accountType": "Savings",
+                "accountName": "Joint Savings Account",
+                "currentBalance": 234560.80,
+                "availableBalance": 233000.00,
+                "currency": "INR",
+                "IFSC Code": "ICICI0000456",
+                "branch": "Delhi South",
+                "holders": ["Rohit Sharma", "Priya Sharma"],
+                "status": "ACTIVE"
+              },
+              {
+                "accountNumber": "70100987654321",
+                "accountType": "Salary",
+                "accountName": "Salary Account",
+                "currentBalance": 89500.00,
+                "availableBalance": 89000.00,
+                "currency": "INR",
+                "IFSC Code": "ICICI0000456",
+                "branch": "Delhi South",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+
+  - context: >
+      Generate account list responses with various account types including NRI accounts,
+      and different balance scenarios. All responses should contain valid, active accounts only.
+    questions_and_answers:
+      - question: Create a response for an NRI customer with foreign currency accounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "NRI1234567890",
+                "accountType": "NRE Savings",
+                "accountName": "NRE Savings Account",
+                "currentBalance": 15000.00,
+                "availableBalance": 14800.00,
+                "currency": "USD",
+                "IFSC Code": "AXIS0000789",
+                "branch": "Mumbai International",
+                "status": "ACTIVE",
+                "nriType": "NRE"
+              },
+              {
+                "accountNumber": "NRI0987654321",
+                "accountType": "NRO Savings",
+                "accountName": "NRO Savings Account",
+                "currentBalance": 250000.00,
+                "availableBalance": 249500.00,
+                "currency": "INR",
+                "IFSC Code": "AXIS0000789",
+                "branch": "Mumbai International",
+                "status": "ACTIVE",
+                "nriType": "NRO"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Generate a response including loan accounts with outstanding amounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "LN12345678901",
+                "accountType": "Home Loan",
+                "accountName": "Home Loan Account",
+                "currentBalance": -2850000.00,
+                "outstandingAmount": 2850000.00,
+                "currency": "INR",
+                "IFSC Code": "SBIN0012345",
+                "branch": "Chennai Main",
+                "status": "ACTIVE",
+                "emiAmount": 32500.00,
+                "nextEmiDate": "2024-01-05"
+              },
+              {
+                "accountNumber": "50100123456789",
+                "accountType": "Savings",
+                "accountName": "Savings Account",
+                "currentBalance": 156800.50,
+                "availableBalance": 155000.00,
+                "currency": "INR",
+                "IFSC Code": "SBIN0012345",
+                "branch": "Chennai Main",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Provide a response with premium banking accounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "80100123456789",
+                "accountType": "Premium Savings",
+                "accountName": "Wealth Management Account",
+                "currentBalance": 1250000.75,
+                "availableBalance": 1245000.00,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000999",
+                "branch": "Delhi Premium",
+                "status": "ACTIVE",
+                "accountTier": "PRIVATE"
+              },
+              {
+                "accountNumber": "80100987654321",
+                "accountType": "Premium Current",
+                "accountName": "Business Premium Account",
+                "currentBalance": 3450000.50,
+                "availableBalance": 3448000.00,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000999",
+                "branch": "Delhi Premium",
+                "status": "ACTIVE",
+                "accountTier": "PRIVATE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+
+  - context: >
+      Generate account list responses with different bank branches, IFSC codes,
+      and various account types. Include variations in balance formats and account naming
+      conventions used by different Indian banks.
+    questions_and_answers:
+      - question: Create a response with accounts from multiple bank branches.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "50100678901234",
+                "accountType": "Savings",
+                "accountName": "Smart Savings Account",
+                "currentBalance": 89700.25,
+                "availableBalance": 89500.00,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000567",
+                "branch": "Bangalore Electronic City",
+                "status": "ACTIVE"
+              },
+              {
+                "accountNumber": "60100890123456",
+                "accountType": "Current",
+                "accountName": "Premium Current Account",
+                "currentBalance": 345670.80,
+                "availableBalance": 344000.00,
+                "currency": "INR",
+                "IFSC Code": "ICICI0000890",
+                "branch": "Hyderabad Gachibowli",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Generate a response with different account types from same branch.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "50100234567890",
+                "accountType": "Savings",
+                "accountName": "Basic Savings Account",
+                "currentBalance": 15600.00,
+                "availableBalance": 15500.00,
+                "currency": "INR",
+                "IFSC Code": "SBIN0012345",
+                "branch": "Pune Camp",
+                "status": "ACTIVE"
+              },
+              {
+                "accountNumber": "FD9876543210",
+                "accountType": "Fixed Deposit",
+                "accountName": "2 Year Fixed Deposit",
+                "currentBalance": 300000.00,
+                "maturityDate": "2024-08-20",
+                "interestRate": 7.2,
+                "currency": "INR",
+                "IFSC Code": "SBIN0012345",
+                "branch": "Pune Camp",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Provide a response with zero balance and minimal balance accounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "50100123456789",
+                "accountType": "Savings",
+                "accountName": "Zero Balance Account",
+                "currentBalance": 0.00,
+                "availableBalance": 0.00,
+                "currency": "INR",
+                "IFSC Code": "AXIS0000123",
+                "branch": "Kolkata Park Street",
+                "status": "ACTIVE",
+                "minimumBalance": 0.00
+              },
+              {
+                "accountNumber": "60100567890123",
+                "accountType": "Savings",
+                "accountName": "Basic Savings Account",
+                "currentBalance": 2550.50,
+                "availableBalance": 2500.00,
+                "currency": "INR",
+                "IFSC Code": "AXIS0000123",
+                "branch": "Kolkata Park Street",
+                "status": "ACTIVE",
+                "minimumBalance": 1000.00
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+
+  - context: >
+      Generate account list responses for senior citizens and special account categories
+      including recurring deposits and special savings schemes with interest rates.
+    questions_and_answers:
+      - question: Create a response for a senior citizen with special interest rate accounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "90100123456789",
+                "accountType": "Senior Savings",
+                "accountName": "Senior Citizen Account",
+                "currentBalance": 45600.75,
+                "availableBalance": 45500.00,
+                "currency": "INR",
+                "IFSC Code": "SBIN0012345",
+                "branch": "Chennai Main",
+                "status": "ACTIVE",
+                "interestRate": 7.5,
+                "holderAge": 67
+              },
+              {
+                "accountNumber": "FD2468135790",
+                "accountType": "Fixed Deposit",
+                "accountName": "Senior Citizen FD",
+                "currentBalance": 800000.00,
+                "maturityDate": "2024-11-30",
+                "interestRate": 8.2,
+                "currency": "INR",
+                "IFSC Code": "SBIN0012345",
+                "branch": "Chennai Main",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Generate a response with recurring deposit accounts and savings.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "RD1234567890",
+                "accountType": "Recurring Deposit",
+                "accountName": "Monthly RD Account",
+                "currentBalance": 120000.00,
+                "monthlyInstallment": 10000.00,
+                "maturityDate": "2024-10-15",
+                "interestRate": 6.8,
+                "currency": "INR",
+                "IFSC Code": "AXIS0000789",
+                "branch": "Delhi South",
+                "status": "ACTIVE"
+              },
+              {
+                "accountNumber": "60100789012345",
+                "accountType": "Savings",
+                "accountName": "Regular Savings Account",
+                "currentBalance": 67800.25,
+                "availableBalance": 67500.00,
+                "currency": "INR",
+                "IFSC Code": "AXIS0000789",
+                "branch": "Delhi South",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Provide a response with government scheme accounts like PPF and SSY.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "PPF123456789",
+                "accountType": "PPF",
+                "accountName": "Public Provident Fund",
+                "currentBalance": 385000.00,
+                "maturityDate": "2028-04-15",
+                "interestRate": 7.1,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000123",
+                "branch": "Bangalore Central",
+                "status": "ACTIVE",
+                "yearlyContribution": 150000.00
+              },
+              {
+                "accountNumber": "SSY987654321",
+                "accountType": "Sukanya Samriddhi",
+                "accountName": "Sukanya Samriddhi Yojana",
+                "currentBalance": 225000.00,
+                "maturityDate": "2035-03-20",
+                "interestRate": 8.2,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000123",
+                "branch": "Bangalore Central",
+                "status": "ACTIVE",
+                "yearlyContribution": 125000.00
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+
+  - context: >
+      Generate account list responses for corporate accounts, trust accounts, and other
+      institutional banking products with specialized features and higher balance ranges.
+    questions_and_answers:
+      - question: Create a response for corporate banking accounts with high balances.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "CORP1001234567",
+                "accountType": "Corporate Current",
+                "accountName": "Corporate Operating Account",
+                "currentBalance": 12500000.00,
+                "availableBalance": 12480000.00,
+                "currency": "INR",
+                "IFSC Code": "ICICI0000999",
+                "branch": "Mumbai Corporate",
+                "status": "ACTIVE",
+                "companyName": "Tech Solutions Pvt Ltd",
+                "authorizedSignatories": ["Rajesh Mehta", "Priya Singh"]
+              },
+              {
+                "accountNumber": "CORP1007654321",
+                "accountType": "Corporate Savings",
+                "accountName": "Corporate Reserve Account",
+                "currentBalance": 3500000.50,
+                "availableBalance": 3495000.00,
+                "currency": "INR",
+                "IFSC Code": "ICICI0000999",
+                "branch": "Mumbai Corporate",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Generate a response for trust and foundation accounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "TRUST500123456",
+                "accountType": "Trust Savings",
+                "accountName": "Educational Trust Account",
+                "currentBalance": 2800000.00,
+                "availableBalance": 2795000.00,
+                "currency": "INR",
+                "IFSC Code": "SBIN0018888",
+                "branch": "Delhi Trust Banking",
+                "status": "ACTIVE",
+                "trustName": "Sharma Educational Trust",
+                "trustees": ["Dr. Amit Sharma", "Mrs. Sunita Sharma"]
+              },
+              {
+                "accountNumber": "FDTRUST789012",
+                "accountType": "Fixed Deposit",
+                "accountName": "Trust Fixed Deposit",
+                "currentBalance": 5000000.00,
+                "maturityDate": "2025-06-30",
+                "interestRate": 7.8,
+                "currency": "INR",
+                "IFSC Code": "SBIN0018888",
+                "branch": "Delhi Trust Banking",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+      - question: Provide a response for startup and business banking accounts.
+        answer: |
+          {
+            "accounts": [
+              {
+                "accountNumber": "STARTUP800123",
+                "accountType": "Startup Current",
+                "accountName": "Startup Operating Account",
+                "currentBalance": 1250000.75,
+                "availableBalance": 1248000.00,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000555",
+                "branch": "Bangalore Startup Hub",
+                "status": "ACTIVE",
+                "startupName": "Innovate Tech Solutions",
+                "businessType": "Technology Services"
+              },
+              {
+                "accountNumber": "STARTUP800456",
+                "accountType": "Startup Savings",
+                "accountName": "Startup Reserve Account",
+                "currentBalance": 450000.00,
+                "availableBalance": 449500.00,
+                "currency": "INR",
+                "IFSC Code": "HDFC0000555",
+                "branch": "Bangalore Startup Hub",
+                "status": "ACTIVE"
+              }
+            ],
+            "totalAccounts": 2,
+            "responseCode": "200",
+            "message": "Accounts retrieved successfully"
+          }
+
+document_outline: Account listing response examples for Indian banking customers with various account types and statuses
+document:
+  repo: https://github.com/poojaacharyaL/banking_repo.git
+  commit: c19fe52
+patterns:
+  - knowledge/banking_test_data.md

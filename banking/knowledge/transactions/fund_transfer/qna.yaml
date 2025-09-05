@@ -1,0 +1,326 @@
+version: 3
+domain: banking.knowledge.transactions.fund_transfer
+created_by: poojaacharyaL
+seed_examples:
+  - context: >
+      Fund transfers using NEFT (National Electronic Funds Transfer) allow standard
+      electronic transactions between banks in batches. Transactions include sender and
+      receiver account numbers, IFSC codes, amount, currency, transfer type, status,
+      transfer date, reference message, and response code. NEFT is widely used for
+      retail and business payments with typical processing times.
+    questions_and_answers:
+      - question: Generate a successful NEFT transfer test data with sender and receiver accounts, amount, currency, and a reference message for synthetic data generation.
+        answer: |
+          {
+            "transactionId": "NEFT240115103015123456",
+            "fromAccount": "50100234567890",
+            "toAccount": "60111234567890",
+            "fromAccountName": "Rajesh Kumar",
+            "toAccountName": "Priya Sharma",
+            "fromIFSC": "SBIN0012345",
+            "toIFSC": "HDFC0000123",
+            "amount": 15000.50,
+            "currency": "INR",
+            "transferType": "NEFT",
+            "status": "Success",
+            "transferDate": "2024-01-15T10:30:15Z",
+            "referenceMessage": "Monthly rent payment January 2024",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+      - question: Generate a NEFT transfer test data showing the system recording the transfer date and reference message in detail.
+        answer: |
+          {
+            "transactionId": "NEFT240115142045654321",
+            "fromAccount": "50100987654321",
+            "toAccount": "40119876543210",
+            "fromAccountName": "Sunita Enterprises",
+            "toAccountName": "Mohan Suppliers",
+            "fromIFSC": "ICICI0000456",
+            "toIFSC": "AXIS0000789",
+            "amount": 45000.75,
+            "currency": "INR",
+            "transferType": "NEFT",
+            "status": "Success",
+            "transferDate": "2024-01-15T14:20:45Z",
+            "referenceMessage": "Invoice #INV-2024-001 payment",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+      - question: Generate a NEFT transfer template showing a typical business payment scenario including sender and receiver IFSC codes.
+        answer: |
+          {
+            "transactionId": "NEFT240115160030987654",
+            "fromAccount": "80100123456789",
+            "toAccount": "70111222334455",
+            "fromAccountName": "ABC Corporation Ltd",
+            "toAccountName": "XYZ Manufacturing Pvt Ltd",
+            "fromIFSC": "HDFC0000999",
+            "toIFSC": "SBIN0011111",
+            "amount": 125000.00,
+            "currency": "INR",
+            "transferType": "NEFT",
+            "status": "Success",
+            "transferDate": "2024-01-15T16:00:30Z",
+            "referenceMessage": "Supplier payment for PO-2024-015",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+
+  - context: >
+      RTGS (Real-Time Gross Settlement) is used for high-value transactions in India.
+      RTGS transactions are processed individually in real-time. Required fields include
+      transaction ID, sender and receiver accounts, IFSC codes, amount, currency,
+      transfer type, status, transfer date, and reference message.
+    questions_and_answers:
+      - question: Generate a successful RTGS high-value transfer with all standard fields.
+        answer: |
+          {
+            "transactionId": "RTGS240115110045112233",
+            "fromAccount": "90100123456789",
+            "toAccount": "80100987654321",
+            "fromAccountName": "Infrastructure Developers",
+            "toAccountName": "Construction Equipment Ltd",
+            "fromIFSC": "SBIN0012345",
+            "toIFSC": "HDFC0000123",
+            "amount": 2500000.00,
+            "currency": "INR",
+            "transferType": "RTGS",
+            "status": "Success",
+            "transferDate": "2024-01-15T11:00:45Z",
+            "referenceMessage": "Advance payment for construction project",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+      - question: Generate RTGS transfer template for a corporate transaction including reference message and timestamp.
+        answer: |
+          {
+            "transactionId": "RTGS240115150020445566",
+            "fromAccount": "70100234567890",
+            "toAccount": "601005550001122",
+            "fromAccountName": "Global Exports Pvt Ltd",
+            "toAccountName": "Shipping Logistics Inc",
+            "fromIFSC": "ICICI0000456",
+            "toIFSC": "AXIS0000789",
+            "amount": 1800000.50,
+            "currency": "INR",
+            "transferType": "RTGS",
+            "status": "Success",
+            "transferDate": "2024-01-15T15:00:20Z",
+            "referenceMessage": "Freight charges for container shipment",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+      - question: Generate RTGS transfer data template for synthetic data with real-world high-value transfer details.
+        answer: |
+          {
+            "transactionId": "RTGS240115093015778899",
+            "fromAccount": "50100666777888",
+            "toAccount": "40111999888777",
+            "fromAccountName": "Real Estate Developers",
+            "toAccountName": "Land Owners Association",
+            "fromIFSC": "HDFC0000999",
+            "toIFSC": "SBIN0011111",
+            "amount": 5000000.00,
+            "currency": "INR",
+            "transferType": "RTGS",
+            "status": "Success",
+            "transferDate": "2024-01-15T09:30:15Z",
+            "referenceMessage": "Land acquisition payment final settlement",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+
+  - context: >
+      IMPS (Immediate Payment Service) allows instant 24/7 interbank transfers via
+      mobile or internet banking. Each transaction includes sender and receiver account
+      details, IFSC codes, amount, currency, transfer type, status, transfer date,
+      and reference messages.
+    questions_and_answers:
+      - question: Generate an IMPS instant transfer test data template for synthetic data.
+        answer: |
+          {
+            "transactionId": "IMPS240115203045334455",
+            "fromAccount": "50100234567890",
+            "toAccount": "60111234567890",
+            "fromAccountName": "Ravi Verma",
+            "toAccountName": "Sneha Patel",
+            "fromIFSC": "SBIN0012345",
+            "toIFSC": "HDFC0000123",
+            "amount": 5000.00,
+            "currency": "INR",
+            "transferType": "IMPS",
+            "status": "Success",
+            "transferDate": "2024-01-15T20:30:45Z",
+            "referenceMessage": "Dinner bill split with friends",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+      - question: Generate IMPS test data with synthetic account numbers and reference message.
+        answer: |
+          {
+            "transactionId": "IMPS240115221520667788",
+            "fromAccount": "40119876543210",
+            "toAccount": "50100987654321",
+            "fromAccountName": "Ankit Joshi",
+            "toAccountName": "Neha Desai",
+            "fromIFSC": "AXIS0000789",
+            "toIFSC": "ICICI0000456",
+            "amount": 2500.25,
+            "currency": "INR",
+            "transferType": "IMPS",
+            "status": "Success",
+            "transferDate": "2024-01-15T22:15:20Z",
+            "referenceMessage": "Movie tickets payment",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+      - question: Generate a detailed IMPS transfer scenario template for LLM training.
+        answer: |
+          {
+            "transactionId": "IMPS240115194030990011",
+            "fromAccount": "601005550001122",
+            "toAccount": "70100234567890",
+            "fromAccountName": "Kiran Mehta",
+            "toAccountName": "Grocery Store",
+            "fromIFSC": "HDFC0000123",
+            "toIFSC": "SBIN0012345",
+            "amount": 3500.75,
+            "currency": "INR",
+            "transferType": "IMPS",
+            "status": "Success",
+            "transferDate": "2024-01-15T19:40:30Z",
+            "referenceMessage": "Weekly grocery shopping payment",
+            "responseCode": "200",
+            "message": "Fund transfer successful"
+          }
+
+  - context: >
+      Scheduled fund transfers allow users to set up future NEFT or IMPS transfers.
+      These transfers require sender and receiver details, IFSC codes, amount, currency,
+      transfer type, scheduled date, reference message, and status.
+    questions_and_answers:
+      - question: Generate a scheduled NEFT transfer template for synthetic data generation.
+        answer: |
+          {
+            "transactionId": "SCHNEFT240120100000223344",
+            "fromAccount": "50100234567890",
+            "toAccount": "60111234567890",
+            "fromAccountName": "Rajesh Kumar",
+            "toAccountName": "Electricity Board",
+            "fromIFSC": "SBIN0012345",
+            "toIFSC": "HDFC0000123",
+            "amount": 2500.00,
+            "currency": "INR",
+            "transferType": "NEFT",
+            "status": "Scheduled",
+            "scheduledDate": "2024-01-20T10:00:00Z",
+            "referenceMessage": "Monthly electricity bill payment January",
+            "responseCode": "202",
+            "message": "Fund transfer scheduled"
+          }
+      - question: Generate a scheduled IMPS transfer template for synthetic data.
+        answer: |
+          {
+            "transactionId": "SCHIMPS240125090000556677",
+            "fromAccount": "40119876543210",
+            "toAccount": "50100987654321",
+            "fromAccountName": "Sunita Enterprises",
+            "toAccountName": "Employee Salary Account",
+            "fromIFSC": "AXIS0000789",
+            "toIFSC": "ICICI0000456",
+            "amount": 45000.00,
+            "currency": "INR",
+            "transferType": "IMPS",
+            "status": "Scheduled",
+            "scheduledDate": "2024-01-25T09:00:00Z",
+            "referenceMessage": "January salary payment for employee ID 123",
+            "responseCode": "202",
+            "message": "Fund transfer scheduled"
+          }
+      - question: Generate scheduled fund transfer template including all required fields for LLM training.
+        answer: |
+          {
+            "transactionId": "SCHNEFT240201150000889900",
+            "fromAccount": "80100123456789",
+            "toAccount": "70111222334455",
+            "fromAccountName": "ABC Corporation Ltd",
+            "toAccountName": "Office Rent Account",
+            "fromIFSC": "HDFC0000999",
+            "toIFSC": "SBIN0011111",
+            "amount": 75000.00,
+            "currency": "INR",
+            "transferType": "NEFT",
+            "status": "Scheduled",
+            "scheduledDate": "2024-02-01T15:00:00Z",
+            "referenceMessage": "Office rent payment for February 2024",
+            "responseCode": "202",
+            "message": "Fund transfer scheduled"
+          }
+
+  - context: >
+      UPI (Unified Payments Interface) enables instant real-time payments between bank accounts
+      using UPI IDs or QR codes. Transactions include sender and receiver details, amount,
+      currency, transfer type, status, transfer date, UPI reference ID, and response message.
+    questions_and_answers:
+      - question: Generate a successful UPI payment transaction using UPI ID.
+        answer: |
+          {
+            "transactionId": "UPI240115184515334455",
+            "fromAccount": "50100234567890",
+            "toUpiId": "priya.sharma@okhdfcbank",
+            "fromAccountName": "Rajesh Kumar",
+            "toAccountName": "Priya Sharma",
+            "amount": 2000.00,
+            "currency": "INR",
+            "transferType": "UPI",
+            "status": "Success",
+            "transferDate": "2024-01-15T18:45:15Z",
+            "upiReferenceId": "UPI123456789012",
+            "referenceMessage": "Dinner payment",
+            "responseCode": "200",
+            "message": "UPI transaction successful"
+          }
+      - question: Generate a UPI QR code payment transaction template.
+        answer: |
+          {
+            "transactionId": "UPI240115201230667788",
+            "fromAccount": "40119876543210",
+            "toUpiId": "merchant.qr@okaxis",
+            "fromAccountName": "Ankit Joshi",
+            "toAccountName": "City Supermarket",
+            "amount": 3500.50,
+            "currency": "INR",
+            "transferType": "UPI",
+            "status": "Success",
+            "transferDate": "2024-01-15T20:12:30Z",
+            "upiReferenceId": "UPI987654321098",
+            "referenceMessage": "Grocery shopping payment",
+            "responseCode": "200",
+            "message": "UPI transaction successful"
+          }
+      - question: Generate a UPI collect request payment confirmation template.
+        answer: |
+          {
+            "transactionId": "UPI240115214045990011",
+            "fromAccount": "601005550001122",
+            "toUpiId": "rent.collect@okicici",
+            "fromAccountName": "Kiran Mehta",
+            "toAccountName": "Landlord Services",
+            "amount": 15000.00,
+            "currency": "INR",
+            "transferType": "UPI",
+            "status": "Success",
+            "transferDate": "2024-01-15T21:40:45Z",
+            "upiReferenceId": "UPI456789012345",
+            "referenceMessage": "Monthly rent payment",
+            "responseCode": "200",
+            "message": "UPI transaction successful"
+          }
+
+document_outline: Fund transfer test data generation examples including NEFT, RTGS, IMPS, scheduled, and UPI transactions with realistic account details for LLM training.
+document:
+  repo: https://github.com/poojaacharyaL/banking_repo.git
+  commit: c19fe52
+patterns:
+  - knowledge/banking_test_data.md
