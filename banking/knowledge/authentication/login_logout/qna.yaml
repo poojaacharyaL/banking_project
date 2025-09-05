@@ -116,7 +116,7 @@ seed_examples:
           }
 document_outline: Valid login endpoint payload examples for Indian banking authentication
 document:
-  repo: 'https://github.com/poojaacharyaL/banking_repo.git'
-  commit: c19fe52
+  repo: https://github.com/poojaacharyaL/banking_project.git
+  commit: 01250f2
 patterns:
   - knowledge/banking_test_data.md
